@@ -38,7 +38,6 @@ class CouponDispenser:
         self.customer_roster = []
         self.issued_indices = []
 
-        pass
 
     def __str__(self):
         """
@@ -56,7 +55,6 @@ class CouponDispenser:
         else:
             return "|".join(self.coupon_cards)
 
-        pass
 
     def issue_coupon(self, name):
         """
@@ -81,14 +79,13 @@ class CouponDispenser:
             coupon_index = self.issued_indices[index]
             coupon = self.coupon_cards[coupon_index]
             return f"That name already has a coupon: {coupon}"
-        else:
-            coupon_index = random.randint(0, len(self.coupon_cards) - 1)
-            self.customer_roster.append(name)
-            self.issued_indices.append(coupon_index)
-            coupon = self.coupon_cards[coupon_index]
-            return coupon
+        
+        coupon_index = random.randint(0, len(self.coupon_cards) - 1)
+        self.customer_roster.append(name)
+        self.issued_indices.append(coupon_index)
+        coupon = self.coupon_cards[coupon_index]
+        return coupon
 
-        pass
 
     def distribute_session(self):
         """
@@ -120,17 +117,17 @@ class CouponDispenser:
                     coupon = self.coupon_cards[coupon_index]
                     print(f"{name}: {coupon}")
             else:
-                names = []
+                # names = []
                 for name in user_input.split(","):
-                    if name != "":
-                        names.append(name.strip())
-                for name in names:
-                    message = self.issue_coupon(name)
-                    if message.startswith("That name already has a coupon:"):
+                    name_stripped = name.strip()
+                    if name_stripped != "":
+                        # names.append(name.strip())
+                # for name in names:
+                        message = self.issue_coupon(name_stripped)
+                        # if message.startswith("That name already has a coupon:"):
                         print(message)
             round_num += 1
 
-        pass
 
     def tally_distribution(self):
         """
@@ -163,7 +160,6 @@ class CouponDispenser:
             return
             
 
-        pass
 
 
 def main():
@@ -185,7 +181,7 @@ def main():
     box = CouponDispenser(coupon_cards)
     box.distribute_session()
     box.tally_distribution()
-    pass
+
 
 
 # -----------------------
