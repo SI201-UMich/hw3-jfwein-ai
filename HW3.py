@@ -117,14 +117,10 @@ class CouponDispenser:
                     coupon = self.coupon_cards[coupon_index]
                     print(f"{name}: {coupon}")
             else:
-                # names = []
                 for name in user_input.split(","):
                     name_stripped = name.strip()
                     if name_stripped != "":
-                        # names.append(name.strip())
-                # for name in names:
                         message = self.issue_coupon(name_stripped)
-                        # if message.startswith("That name already has a coupon:"):
                         print(message)
             round_num += 1
 
